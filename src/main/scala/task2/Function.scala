@@ -23,13 +23,6 @@ object Function:
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
 
   /** Part 7. */
-
-  /**
-   * a^b
-   * 0           => 1
-   * b mod 2 = 0 => (a^(b/2))^2
-   * b mod 2 = 1 => a * (a^(b/2))^2
-   * */
   def power(base: Double, exponent: Int): Double = exponent match
     case 0 => 1
     case exponent if exponent % 2 == 0 =>
