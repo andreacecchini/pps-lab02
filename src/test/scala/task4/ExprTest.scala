@@ -20,3 +20,7 @@ class ExprTest:
     val e2: Expr = Literal(2)
     val mul: Expr = Multiply(e1, e2)
     assertEquals(2, evaluate(mul))
+
+  @Test def canShowALiteral(): Unit =
+    val literal: Expr = Literal(1)
+    assertEquals("1", show(literal))
