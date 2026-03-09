@@ -1,7 +1,5 @@
 package task5
 
-import javax.sql.rowset.Predicate
-
 // overall module
 object Optionals:
 
