@@ -1,6 +1,6 @@
 package task2
 
-import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
+import org.junit.Assert.{assertEquals, assertTrue}
 import org.junit.Test
 import Function.*
 
@@ -32,3 +32,25 @@ class FunctionTest:
     val x = compose(_ - 1, _ * 2)(5)
     val expected = 9
     assertEquals(expected, x)
+
+  @Test def canComputePower(): Unit =
+    val base: Double = 2
+    val exponent: Int = 3
+    val expected: Double = 8.0
+    val delta = 0.0001
+    assertEquals(expected, power(base, exponent), delta)
+
+  @Test def poweringByZeroShouldGetOne(): Unit =
+    val base: Double = 2
+    val exponent: Int = 0
+    val expected: Double = 1.0
+    val delta = 0.0001
+    assertEquals(expected, power(base, exponent), delta)
+
+  @Test def poweringByOneShouldGetBase(): Unit =
+    val base: Double = 2
+    val exponent: Int = 1
+    val expected: Double = 2.0
+    val delta = 0.0001
+    assertEquals(expected, power(base, exponent), delta)
+

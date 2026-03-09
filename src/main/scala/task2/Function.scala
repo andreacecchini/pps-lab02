@@ -13,12 +13,29 @@ object Function:
   // [TODO] check _ scoping
   val p1: Int => Int => Int => Boolean = x => y => z => x <= y && y == z
   val p2: (Int, Int, Int) => Boolean = (x, y, z) => x <= y && y == z
+
   def p3(x: Int)(y: Int)(z: Int): Boolean = x <= y && y == z
+
   def p4(x: Int, y: Int, z: Int): Boolean = x <= y && y == z
 
   /** Part 5. */
   // [TODO] check _ scoping -> why does f(g(_)) return an error?
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
+
+  /** Part 7. */
+
+  /**
+   * a^b
+   * 0           => 1
+   * b mod 2 = 0 => (a^(b/2))^2
+   * b mod 2 = 1 => a * (a^(b/2))^2
+   * */
+  def power(base: Double, exponent: Int): Double = exponent match
+    case 0 => 1
+    case b if b % 2 == 0 =>
+      val half = power(base, exponent = b / 2)
+      half * half
+    case _ => base * power(base, exponent - 1)
 
 @main def test(): Unit =
   import Function.*
