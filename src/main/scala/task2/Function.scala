@@ -25,9 +25,7 @@ object Function:
   /** Part 7. */
   def power(base: Double, exponent: Int): Double = exponent match
     case 0 => 1
-    case exponent if exponent % 2 == 0 =>
-      val half = power(base, exponent / 2)
-      half * half
+    case exponent if exponent % 2 == 0 => val half = power(base, exponent / 2); half * half
     case _ => base * power(base, exponent - 1)
 
 @main def test(): Unit =
