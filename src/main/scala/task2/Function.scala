@@ -1,5 +1,7 @@
 package task2
 
+import scala.annotation.tailrec
+
 object Function:
   /** Part 3 */
 
@@ -23,10 +25,12 @@ object Function:
   def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
 
   /** Part 7. */
-  def power(base: Double, exponent: Int): Double = exponent match
-    case 0 => 1
-    case exponent if exponent % 2 == 0 => val half = power(base, exponent / 2); half * half
-    case _ => base * power(base, exponent - 1)
+  def power(base: Double, exponent: Int): Double =
+    @tailrec
+    def loop(exponent: Int, acc: Double): Double = exponent match
+      case 0 => acc
+      case _ => loop(exponent-1, acc * base)
+    loop(exponent, 1)
 
 @main def test(): Unit =
   import Function.*
