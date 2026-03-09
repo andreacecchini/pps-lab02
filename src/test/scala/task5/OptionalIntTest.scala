@@ -22,4 +22,12 @@ class OptionalIntTest:
     val empty = Empty()
     assertEquals(1, orElse(empty, 1))
 
-  /** Task 5: do test for map **/
+  /** Task 5: do test for map * */
+  @Test def shouldMapWhenNonEmpty(): Unit =
+    val nonEmpty: OptionalInt = Just(5)
+    assertEquals(Just(6), mapInt(nonEmpty)(_ + 1))
+
+  @Test def mapShouldReturnEmptyWhenEmpty(): Unit =
+    val empty: OptionalInt = Empty()
+    assertEquals(Empty(), mapInt(empty)(_ + 1))
+
