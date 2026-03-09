@@ -1,6 +1,6 @@
 package task2
 
-import org.junit.Assert.assertEquals
+import org.junit.Assert.{assertEquals, assertFalse, assertTrue}
 import org.junit.Test
 import Function.*
 
@@ -16,3 +16,11 @@ class FunctionTest:
   @Test def zeroShouldBeMatchedAsPositive(): Unit =
     val x: Int = 0
     assertEquals("positive", positive(x))
+
+  @Test def canNegPredicate(): Unit =
+    val empty: String => Boolean = _ == ""
+    val notEmpty: String => Boolean = neg(empty)
+    assertTrue:
+      notEmpty("foo")
+    assertTrue:
+      empty("")
