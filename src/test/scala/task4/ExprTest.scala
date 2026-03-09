@@ -24,3 +24,9 @@ class ExprTest:
   @Test def canShowALiteral(): Unit =
     val literal: Expr = Literal(1)
     assertEquals("1", show(literal))
+
+  @Test def canShowASum(): Unit =
+    val e1: Expr = Literal(1)
+    val e2: Expr = Literal(2)
+    val sum: Expr = Add(e1, e2)
+    assertEquals("1 + 2", show(sum))
