@@ -50,7 +50,7 @@ class FunctionTest:
   @Test def canReverseZero(): Unit =
     assertReverse(expected = 0, reversed = reverseNumber(0))
 
-  @Test def canReverseNumbersTerminatingWithZero: Unit =
+  @Test def canReverseNumbersTerminatingByZero(): Unit =
     assertReverse(expected = 321, reversed = reverseNumber(1230))
 
   private def assertPow(base: Double, exponent: Int, expected: Double): Unit = {
