@@ -32,8 +32,8 @@ object Function:
    * */
   def power(base: Double, exponent: Int): Double = exponent match
     case 0 => 1
-    case b if b % 2 == 0 =>
-      val half = power(base, exponent = b / 2)
+    case exponent if exponent % 2 == 0 =>
+      val half = power(base, exponent / 2)
       half * half
     case _ => base * power(base, exponent - 1)
 
