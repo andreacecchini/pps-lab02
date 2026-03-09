@@ -6,7 +6,7 @@ enum Expr:
   case Multiply(e1: Expr, e2: Expr)
 
 object Expr:
-  def evaluate(expression: Expr): Int = expression match
+  def evaluate(expr: Expr): Int = expr match
     case Literal(n) => n
     case Add(e1, e2) => evaluate(e1) + evaluate(e2)
     case Multiply(e1, e2) => evaluate(e1) * evaluate(e2)
