@@ -42,12 +42,20 @@ class FunctionTest:
     assertPow(base = 2, exponent = 1, expected = 2.0)
 
   @Test def canReverseNumber(): Unit =
-    val n = 1234
-    val expected = 4321
-    assertEquals(expected, reverseNumber(n))
+    assertReverse(expected = 4321, reversed = reverseNumber(1234))
+
+  @Test def canReverseOneLengthNumber(): Unit =
+    assertReverse(expected = 1, reversed = reverseNumber(1))
+
+  @Test def canReverseZero(): Unit =
+    assertReverse(expected = 0, reversed = reverseNumber(0))
 
   private def assertPow(base: Double, exponent: Int, expected: Double): Unit = {
     val delta = 0.0001
     assertEquals(expected, power(base, exponent), delta)
   }
+
+  private def assertReverse(expected: Int, reversed: Int): Unit =
+    assertEquals(expected, reversed)
+
 

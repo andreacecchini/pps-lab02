@@ -1,5 +1,6 @@
 package task2
 
+import scala.NamedTuple.Reverse
 import scala.annotation.tailrec
 
 object Function:
@@ -33,7 +34,15 @@ object Function:
 
     loop(exponent, 1)
 
-  def reverseNumber(n: Int): Int = ???
+  def reverseNumber(n: Int): Int =
+    val lastDigit: Int => Int = _ % 10
+
+    @tailrec
+    def iterate(remaining: Int, reverse: Int): Int = remaining match
+      case 0 => reverse
+      case _ => iterate(remaining / 10, reverse * 10 + lastDigit(remaining))
+
+    iterate(n, 0)
 
 @main def test(): Unit =
   import Function.*
