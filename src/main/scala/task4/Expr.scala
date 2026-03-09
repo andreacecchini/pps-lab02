@@ -14,4 +14,4 @@ object Expr:
   def show(expr: Expr): String = expr match
     case Literal(n) => s"$n"
     case Add(e1, e2) => s"${show(e1)} + ${show(e2)}"
-    case Multiply(_, _) => ???
+    case Multiply(e1, e2) => s"${show(e1)} * ${show(e2)}"

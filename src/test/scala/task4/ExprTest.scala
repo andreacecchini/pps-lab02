@@ -30,3 +30,9 @@ class ExprTest:
     val e2: Expr = Literal(2)
     val sum: Expr = Add(e1, e2)
     assertEquals("1 + 2", show(sum))
+
+  @Test def canShowAMul(): Unit =
+    val e1: Expr = Literal(1)
+    val e2: Expr = Literal(2)
+    val mul: Expr = Multiply(e1, e2)
+    assertEquals("1 * 2", show(mul))
