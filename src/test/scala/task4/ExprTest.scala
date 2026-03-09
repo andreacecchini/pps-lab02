@@ -5,17 +5,17 @@ import org.junit.Test
 import Expr.*
 
 class ExprTest:
-  @Test def canDefineALiteral(): Unit =
+  @Test def canEvaluateALiteral(): Unit =
     val literal: Expr = Literal(1)
     assertEquals(1, evaluate(literal))
 
-  @Test def canDefineASum(): Unit =
+  @Test def canEvaluateASum(): Unit =
     val e1: Expr = Literal(1)
     val e2: Expr = Literal(2)
     val sum: Expr = Add(e1, e2)
     assertEquals(3, evaluate(sum))
 
-  @Test def canDefineAMul(): Unit =
+  @Test def canEvaluateAMul(): Unit =
     val e1: Expr = Literal(1)
     val e2: Expr = Literal(2)
     val mul: Expr = Multiply(e1, e2)
