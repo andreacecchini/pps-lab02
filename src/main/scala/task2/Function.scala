@@ -29,8 +29,11 @@ object Function:
     @tailrec
     def loop(exponent: Int, acc: Double): Double = exponent match
       case 0 => acc
-      case _ => loop(exponent-1, acc * base)
+      case _ => loop(exponent - 1, acc * base)
+
     loop(exponent, 1)
+
+  def reverseNumber(n: Int): Int = ???
 
 @main def test(): Unit =
   import Function.*
