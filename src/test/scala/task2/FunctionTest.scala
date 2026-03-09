@@ -21,6 +21,8 @@ class FunctionTest:
     val empty: String => Boolean = _ == ""
     val notEmpty: String => Boolean = neg(empty)
     assertTrue:
-      notEmpty("foo")
+      val notEmptyString = "foo"
+      notEmpty(notEmptyString)
     assertTrue:
-      empty("")
+      val emptyString = ""
+      empty(emptyString)
