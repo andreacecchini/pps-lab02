@@ -50,6 +50,9 @@ class FunctionTest:
   @Test def canReverseZero(): Unit =
     assertReverse(expected = 0, reversed = reverseNumber(0))
 
+  @Test def canReverseNumbersTerminatingWithZero: Unit =
+    assertReverse(expected = 321, reversed = reverseNumber(1230))
+
   private def assertPow(base: Double, exponent: Int, expected: Double): Unit = {
     val delta = 0.0001
     assertEquals(expected, power(base, exponent), delta)
