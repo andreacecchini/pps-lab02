@@ -1,8 +1,5 @@
 package task2
 
-import scala.NamedTuple.Reverse
-import scala.annotation.tailrec
-
 object Function:
   /** Part 3 */
 
