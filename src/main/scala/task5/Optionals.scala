@@ -8,13 +8,13 @@ object Optionals:
   // type "public" definition, exposing structure
   enum OptionalInt:
     case Just(value: Int)
-    case Empty()
+    case Empty
 
   // operations (/algorithms)
   object OptionalInt:
 
     def isEmpty(opt: OptionalInt): Boolean = opt match
-      case Empty() => true
+      case Empty => true
       case _ => false
 
     def orElse(opt: OptionalInt, orElse: Int): Int = opt match
@@ -23,18 +23,18 @@ object Optionals:
 
     def mapInt(opt: OptionalInt)(f: Int => Int): OptionalInt = opt match
       case Just(a) => Just(f(a))
-      case _ => Empty()
+      case _ => Empty
 
     def filter(opt: OptionalInt)(predicate: Int => Boolean): OptionalInt = opt match
       case Just(a) if predicate(a) => Just(a)
-      case _ => Empty()
+      case _ => Empty
 
 @main def tryOptionals(): Unit =
   import Optionals.* // to work with Optionals (to see OptionalInt type)
   import OptionalInt.* // to directly access algorithms
 
   val s1: OptionalInt = Just(1)
-  val s2: OptionalInt = Empty()
+  val s2: OptionalInt = Empty
 
   println(s1) // Some(1)
   println(isEmpty(s1)) // false
