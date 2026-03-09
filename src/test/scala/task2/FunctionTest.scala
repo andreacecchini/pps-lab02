@@ -26,3 +26,9 @@ class FunctionTest:
     assertTrue:
       val emptyString = ""
       empty(emptyString)
+
+  @Test def canComposeTwoFunction(): Unit =
+    // f.g = f(g(x))
+    val x = compose(_ - 1, _ * 2)(5)
+    val expected = 9
+    assertEquals(expected, x)

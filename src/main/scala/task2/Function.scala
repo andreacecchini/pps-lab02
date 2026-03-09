@@ -16,6 +16,10 @@ object Function:
   def p3(x: Int)(y: Int)(z: Int): Boolean = x <= y && y == z
   def p4(x: Int, y: Int, z: Int): Boolean = x <= y && y == z
 
+  /** Part 5. */
+  // [TODO] check _ scoping -> why does f(g(_)) return an error?
+  def compose(f: Int => Int, g: Int => Int): Int => Int = x => f(g(x))
+
 @main def test(): Unit =
   import Function.*
   val x = 1
