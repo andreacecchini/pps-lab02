@@ -13,10 +13,12 @@ object Recursion:
 
   def reverseNumber(n: Int): Int =
     val lastDigit: Int => Int = _ % 10
+    val removeLastDigit: Int => Int = _ / 10
+    val shift: Int => Int = _ * 10
 
     @tailrec
     def iterate(remaining: Int, reverse: Int): Int = remaining match
       case 0 => reverse
-      case _ => iterate(remaining / 10, reverse * 10 + lastDigit(remaining))
+      case _ => iterate(removeLastDigit(remaining), shift(reverse) + lastDigit(remaining))
 
     iterate(n, 0)
